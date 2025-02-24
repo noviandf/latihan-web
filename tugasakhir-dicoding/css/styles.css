@@ -1,0 +1,308 @@
+/* colorhunt
+#1E201E #3C3D37 #697565 #ECDFCC */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Comfortaa", serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+header,
+footer {
+  background: #1e201e;
+  color: #ecdfcc;
+}
+header {
+  padding-block: 0.2em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.logo {
+  text-align: center;
+}
+.logo img {
+  max-height: 5em;
+  margin: 10px;
+  margin-bottom: -10px;
+}
+#menuToggle {
+  display: none;
+}
+nav {
+  margin-top: 10px;
+}
+.nav-utama ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 3rem;
+}
+.nav-utama ul li {
+  list-style-type: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+}
+.nav-utama ul li a {
+  text-decoration: none;
+  color: #ecdfcc;
+}
+.nav-utama ul li:hover {
+  background-color: #ecdfcc;
+}
+.nav-utama ul li:hover a {
+  color: #000;
+}
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  margin-block: 2em;
+  border-radius: 8px;
+}
+#content {
+  flex: 3;
+}
+article {
+  background: #f4f4f4;
+  padding: 1.1em;
+  margin-right: 0.5em;
+  border-radius: 5px;
+}
+article img {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+article h2,
+h3 {
+  margin-bottom: 0.5em;
+}
+article p {
+  margin-bottom: 1rem;
+}
+aside {
+  flex: 1;
+  background: #697565;
+  color: #fcf4f4;
+  font-size: small;
+  padding: 15px;
+  border-radius: 5px;
+  align-self: flex-start;
+}
+aside img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+aside table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  font-weight: bold;
+}
+aside i {
+  font-size: 1.8em;
+  margin-inline: 0.2em;
+  color: rgb(255, 255, 255);
+  padding: 2px 3px;
+  border-radius: 50%;
+}
+
+aside i:hover {
+  color: rgb(0, 0, 0);
+}
+footer {
+  display: flex;
+  padding: 2em 2em;
+  justify-content: space-between;
+}
+.footer-left {
+  font-size: 0.9em;
+}
+.footer-right .social-media {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 1.6em;
+}
+.footer-right .social-media a {
+  color: #cecfe2;
+  padding: 5px 13px;
+}
+.footer-right .social-media a:hover {
+  background-color: #fff;
+  color: #000;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.footer-right .send-message {
+  margin-bottom: 1em;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: rgb(235, 237, 240);
+  font-size: 0.9em;
+}
+.footer-right .send-message a {
+  text-decoration: none;
+  color: #000000;
+}
+.footer-right .send-message:hover {
+  background-color: rgb(29, 29, 34);
+}
+.footer-right .send-message:hover a {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  body,
+  header {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  #menu2 {
+    display: none;
+  }
+  main {
+    flex-direction: column;
+  }
+
+  aside {
+    flex: 1;
+    background: #697565;
+    font-size: small;
+    padding: 15px;
+    border-radius: 5px;
+    align-self: flex-start;
+    width: 50%;
+    margin: 20px auto;
+  }
+
+  #menuToggle {
+    display: block;
+    position: absolute;
+    top: 40px;
+    right: 90px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  #menuToggle a {
+    text-decoration: none;
+    color: #232323;
+    transition: color 0.3s ease;
+    padding: 5px 6px;
+    border-radius: 8px;
+  }
+  #menuToggle a:hover {
+    color: #697565;
+    background-color: #1e201e;
+  }
+  #menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+    -webkit-touch-callout: none;
+  }
+  #menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #f7e1e1;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  }
+  #menuToggle span:first-child {
+    transform-origin: 0% 0%;
+  }
+  #menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+  }
+
+  /* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+  #menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+  }
+
+  /*
+ * But let's hide the middle one.
+ */
+  #menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  /*
+ * Ohyeah and the last one should go the other direction
+ */
+  #menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+
+  /*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+  #menu {
+    display: inline-block;
+    position: absolute;
+    right: -150px;
+    max-width: 400px;
+    width: 100vw;
+    max-height: 100vh;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background: #ededed;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+
+    transform-origin: 0% 0%;
+    transform: translate(100%, 0);
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+
+  #menu li {
+    padding: 10px 0;
+    font-size: 22px;
+  }
+
+  #menu li label {
+    cursor: pointer;
+  }
+
+  /*
+ * And let's slide it in from the left
+ */
+  #menuToggle input:checked ~ ul {
+    transform: none;
+  }
+}
