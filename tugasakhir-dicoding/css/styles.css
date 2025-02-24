@@ -163,6 +163,14 @@ footer {
 }
 
 @media (max-width: 768px) {
+  html,
+  body {
+    touch-action: manipulation;
+    user-select: none;
+    -ms-touch-action: manipulation;
+    -webkit-user-select: none;
+  }
+}
   body,
   header {
     overflow-x: hidden;
@@ -294,15 +302,12 @@ footer {
     padding: 10px 0;
     font-size: 22px;
   }
-
   #menu li label {
     cursor: pointer;
   }
-
-  /*
- * And let's slide it in from the left
- */
   #menuToggle input:checked ~ ul {
     transform: none;
   }
 }
+
+
