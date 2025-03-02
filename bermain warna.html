@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        text-align: center;
+      }
+      .setTombol {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        gap: 1em;
+      }
+      .kotakWarna {
+        display: flex;
+        margin: auto;
+        height: 50px;
+        width: 60px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 50%;
+        background-color: rgb(0, 0, 0);
+      }
+      .btn-1 {
+        padding: 1em 2em;
+        cursor: pointer;
+      }
+
+      .setwarnaRGB {
+        background-color: aliceblue;
+        padding: 50px 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="setTombol">
+      <h1>Bermain dengan warna</h1>
+      <button type="button" class="btn-1">Click</button>
+      <div class="hexaValue">background-color : #</div>
+      <div class="setwarnaRGB">
+        <div class="kotakWarna"></div>
+        <div class="inputWarna1">
+          <input type="range" name="setWarna1" min="0" max="255" />
+        </div>
+        <div class="inputWarna2">
+          <input type="range" name="setWarna2" min="0" max="255" />
+        </div>
+        <div class="inputWarna3">
+          <input type="range" name="setWarna3" min="0" max="255" />
+        </div>
+        <div class="rgbValue">rgb: 0, 0, 0</div>
+      </div>
+      <div class="rgbmouseValue">rgb: 0, 0, 0</div>
+    </div>
+    <script>
+      const btn1 = document.getElementsByClassName("btn-1")[0];
+      const btnWarna = document.createElement("button");
+      const btnText = document.createTextNode("Random Color");
+      const hexaValue = document.querySelector(".hexaValue");
+      btnWarna.appendChild(btnText);
+      btnWarna.setAttribute("type", "button");
+      btn1.after(btnWarna);
+
+      const kotakWarna = document.getElementsByClassName("kotakWarna")[0];
+      const inputWarnaR = document.querySelector("input[name=setWarna1]");
+      const inputWarnaG = document.querySelector("input[name=setWarna2]");
+      const inputWarnaB = document.querySelector("input[name=setWarna3]");
+      const rgbValue = document.querySelector(".rgbValue");
+      const rgbmouseValue = document.querySelector(".rgbmouseValue");
+
+      btn1.onclick = changeColor;
+      function changeColor() {
+        btn1.style.backgroundColor = clickRandomColor();
+      }
+      function clickRandomColor() {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        btn1.textContent = `background-color : #${color}`;
+        return color;
+      }
+
+      btnWarna.addEventListener("click", function () {
+        document.body.style.backgroundColor = getRandomColor();
+        btnWarna.style.padding = "1em 2em";
+      });
+      function getRandomColor() {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        hexaValue.textContent = `background-color : ${color}`;
+        return color;
+      }
+      function updateBackgroundColor() {
+        const r = inputWarnaR.value;
+        const g = inputWarnaG.value;
+        const b = inputWarnaB.value;
+        kotakWarna.style.backgroundColor = `rgb(${r},${g},${b})`;
+        rgbValue.textContent = `rgb : (${r}, ${g}, ${b})`;
+      }
+
+      inputWarnaR.addEventListener("input", updateBackgroundColor);
+      inputWarnaG.addEventListener("input", updateBackgroundColor);
+      inputWarnaB.addEventListener("input", updateBackgroundColor);
+
+      document.body.addEventListener("mousemove", function (event) {
+        const sumbuX = Math.floor((event.clientX / window.innerWidth) * 255);
+        const sumbuY = Math.floor((event.clientY / window.innerHeight) * 255);
+        const getBlue = Math.min(Math.max(sumbuX, sumbuY), 255);
+        document.body.style.backgroundColor = `rgb(${sumbuX},${sumbuY},100)`;
+        rgbmouseValue.textContent = `rgb(${sumbuX},${sumbuY},${getBlue})`;
+      });
+    </script>
+  </body>
+</html>
